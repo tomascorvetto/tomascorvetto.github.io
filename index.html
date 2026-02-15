@@ -394,7 +394,7 @@ footer {
         <h1>Tomás<br><span class="gradient-text">Corvetto</span></h1>
         <p class="hero-desc">Junior IT con experiencia en marketing digital y e-commerce. 19 años, Montevideo, Uruguay. Manejo código, campañas digitales y ventas online con resultados reales.</p>
         <div class="hero-actions">
-          <a href="/cdn-cgi/l/email-protection#42362d2f2b212d30342736362d02252f232b2e6c212d2f" class="btn-primary">Contactar</a>
+          <a href="#" id="emailHero" class="btn-primary">Contactar</a>
           <a href="#experience" class="btn-secondary">Ver experiencia</a>
         </div>
       </div>
@@ -571,7 +571,7 @@ footer {
       <div class="cta-title">¿Buscás talento joven con hambre de crecer?</div>
       <div class="cta-desc">Disponible para posiciones remotas o presenciales. Desarrollo, marketing digital, o donde pueda aportar valor.</div>
       <div class="cta-actions">
-        <a href="/cdn-cgi/l/email-protection#4632292b2f252934302332322906212b272f2a6825292b" class="btn-primary"><span class="__cf_email__" data-cfemail="0d796260646e627f7b687979624d6a606c6461236e6260">[email&#160;protected]</span></a>
+        <a href="#" id="emailCTA" class="btn-primary"></a>
         <a href="https://wa.me/59899736806" target="_blank" class="btn-secondary">WhatsApp</a>
       </div>
       <div class="cta-info">
@@ -587,7 +587,20 @@ footer {
   <div class="container">© 2026 Tomás Corvetto</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+<script>
+// Email obfuscation - assembled by JS so scrapers/Cloudflare can't touch it
+(function() {
+  var u = 'tomicorvetto';
+  var d = 'gmail.com';
+  var e = u + '@' + d;
+  var hero = document.getElementById('emailHero');
+  var cta = document.getElementById('emailCTA');
+  if (hero) { hero.href = 'mai' + 'lto:' + e; }
+  if (cta) { cta.href = 'mai' + 'lto:' + e; cta.textContent = e; }
+})();
+
+// Mobile menu
 document.getElementById('menuBtn').addEventListener('click', function() {
   document.getElementById('navLinks').classList.toggle('active');
 });
@@ -596,6 +609,8 @@ document.querySelectorAll('.nav-links a').forEach(function(a) {
     document.getElementById('navLinks').classList.remove('active');
   });
 });
+
+// Scroll animations
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
@@ -604,4 +619,12 @@ var observer = new IntersectionObserver(function(entries) {
     }
   });
 }, { threshold: 0.1 });
-docume
+document.querySelectorAll('.skill-card, .timeline-item, .edu-card, .cert-badge, .highlight-card').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s, transform 0.5s';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
